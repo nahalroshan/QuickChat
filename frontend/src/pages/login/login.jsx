@@ -36,6 +36,11 @@ function Login() {
                   Forgot password?
                 </a>
               </label>
+              <label className="label">
+                <a href="/signup" className="label-text-alt link link-hover">
+                Don't have an account ? 
+                </a>
+              </label>
             </div>
             <div className="form-control mt-6">
               <button className="btn btn-primary">Login</button>
