@@ -25,7 +25,7 @@ const userSchema = new mongoose.Schema({
         default:""
         // You can add additional properties here as needed, such as default value or validation
     }
-});
+},{timestamps: true});
 
 const User  = mongoose.model("User",userSchema);
 export default User;
