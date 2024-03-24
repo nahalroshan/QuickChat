@@ -1,4 +1,6 @@
+import { sign } from "jsonwebtoken";
 import React, { useState } from "react";
+import userSignup from "../../hooks/userSignup";
 
 function Signup() {
   const [input, setInput] = useState({
@@ -8,11 +10,12 @@ function Signup() {
     confirmpassword: "",
     gender: "",
   });
- 
-  const [gender,setGender] = useState(false) 
-  const handleSubmit = (e) => {
+  const {loading , signup} = userSignup()
+  const [gender, setGender] = useState(false);
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(input);
+    await signup(input);
   };
 
   return (
@@ -96,7 +99,7 @@ function Signup() {
                   <span className="label-text">Gender</span>
                 </label>
                 <div className="flex space-x-4">
-                  <label className="cursor-pointer"  >
+                  <label className="cursor-pointer">
                     <input
                       type="checkbox"
                       className="checkbox"

@@ -1,9 +1,11 @@
+import { Toaster } from "react-hot-toast";
 import MessageContainer from "./components/messages/messagecontainer";
 import ChatWindow from "./pages/chat/chatwindow";
 import Home from "./pages/home/home";
 import Login from "./pages/login/login";
 import Signup from "./pages/signup/signup";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 
 function App() {
   return (
@@ -15,6 +17,7 @@ function App() {
         <Route path="/chat-window" element={<ChatWindow />} />
         <Route path="/message-window" element={<MessageContainer />} />
       </Routes>
+      <Toaster />
     </Router>
   );
 }

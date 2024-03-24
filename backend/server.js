@@ -1,6 +1,7 @@
 import express from 'express'
 import dotenv from 'dotenv'
 import cookieParser from 'cookie-parser';
+import cors from 'cors';
 
 import authRoutes from '../backend/routes/auth.routes.js'
 import connectToMongoDb from './db/connectToMongoDb.js';
@@ -14,9 +15,11 @@ app.listen(PORT,()=>{
     console.log(`Port:${PORT}`);
 })
 
+app.use(cors());
 
 app.use(express.json()); 
 app.use(cookieParser())
+
 app.use('/api/auth',authRoutes)
 app.use('/api/message',messageRoutes)
 app.use('/api/users',userRoutes)
